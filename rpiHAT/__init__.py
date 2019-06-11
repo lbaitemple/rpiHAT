@@ -1,5 +1,5 @@
 from rpiHAT.altimu import AltIMU
-from rpiHAT.servo import Servo
+from rpiHAT.servo import *
 from  rpiHAT.clock import Clock
 from rpiHAT.RotaryEncoder import RotaryEncoder
 #from .altimu import *

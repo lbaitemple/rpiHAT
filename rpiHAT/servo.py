@@ -2,13 +2,17 @@
 from . import clock as clock
 import threading, time
 import Adafruit_PCA9685
+from . import settings
+
+REV='REV2.3'
 
 class Servo(clock.Action):
 
     def __init__(self, channel, duty = 0):
-        pwm = Adafruit_PCA9685.PCA9685(0x40)
-        self.pwm=pwm.set_pwm_freq(92.7)
-        self.channel = channel
+        self.pwm = Adafruit_PCA9685.PCA9685(0x40)
+        self.pwm.set_pwm_freq(92.7)
+        self.channel = settings.PINS[REV]['servo{}'.format(channel-1)]
+        print(self.channel)
         self.duty = duty
 
     def set(self, duty):
@@ -16,11 +20,13 @@ class Servo(clock.Action):
 
     def pulse(self, duty):
         self.duty = duty
+        pos = int(self.duty*4096)
+        print(pos)
+        self.pwm.set_pwm(self.channel, 0, pos)
 #        pulse(self.channel, self.duty)
 
     def run(self):
-        print ("hello")
-        self.pulse(0.3)
+        self.pulse(self.duty)
 #        pulse(self.duty)
 
     def start(self, period):

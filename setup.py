@@ -10,10 +10,10 @@ setup(name='rpihat',
       license='MIT',
       url='https://cflwww.eng.temple.edu',
       packages=find_packages(),
-      install_requires=['smbus', 'Adafruit_PCA9685']
+      install_requires=['smbus', 'Adafruit_PCA9685'],
       entry_points={
        'console_scripts':[
-          'imu'='testimu:callimu'
+          'imu=testimu:callimu'
        ]
      } 
 )
