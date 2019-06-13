@@ -1,22 +1,14 @@
 from datetime import datetime
 from time import sleep
 
-from rpiHAT import AltIMU
+from rpiHAT import LSM6DS33
 
 def callimu():
-    imu = AltIMU()
+    imu = LSM6DS33()
     imu.enable()
 
-    imu.calibrateGyroAngles()
-    start = datetime.now()
-    imu.initComplementaryFromAccel=True
-    imu.initKalmanFromAccel = True
     while True:
-        stop = datetime.now() - start
-        start = datetime.now()
-        deltaT = stop.microseconds/1000000.0
-        print("Gyro:", imu.getComplementaryAngles(deltaT = deltaT))
-        print("Accelerometer (G):", imu.getAccInG())
+        print("Accelerometer (G):", imu.get_gyro_angular_velocity(), imu.getAccelerometer3Angles(), imu.get_accelerometer_angles())
         sleep(1)
 
 

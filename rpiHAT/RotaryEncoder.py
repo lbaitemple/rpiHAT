@@ -27,7 +27,9 @@
 import math
 import threading
 import time
-#from settings import wiringport
+import  wiringpi
+from .settings import wiringport
+
 class RotaryEncoder:
 
     #----------------------------------------------------------------------

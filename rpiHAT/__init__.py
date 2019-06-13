@@ -1,11 +1,8 @@
-from rpiHAT.altimu import AltIMU
-from rpiHAT.servo import *
-from  rpiHAT.clock import Clock
-from rpiHAT.RotaryEncoder import RotaryEncoder
-#from .altimu import *
-#from .servo import servo
-#from .clock import clock 
-
+from rpiHAT.lsm6ds33  import LSM6DS33
+from rpiHAT.clock  import Clock
+from rpiHAT.servo     import *
+from rpiHAT.RotaryEncoder  import RotaryEncoder
+from rpiHAT.settings  import *
 # constants
 IDLE = 0
 RUNNING = 1

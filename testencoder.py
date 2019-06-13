@@ -1,9 +1,11 @@
 #from rpiHAT.clock import clock
 #from rpiHAT.servo import servo
 from rpiHAT import RotaryEncoder as Encoder
+from rpiHAT import settings as settings
+import time
 
-encoder_left = Encoder.Worker(settings.PINS['encoder']['left'])
-encoder_right = Encoder.Worker(settings.PINS['encoder']['right'])
+encoder_left = Encoder.Worker(settings.PINS['REV2.3']['encoder0'])
+encoder_right = Encoder.Worker(settings.PINS['REV2.3']['encoder1'])
 encoder_left.start()
 encoder_right.start()
 
