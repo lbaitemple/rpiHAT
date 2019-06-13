@@ -1,4 +1,4 @@
-import threading, time, warnings
+import threading, time, warnings,  sys
 
 class Action:
     def run(self):
@@ -17,7 +17,12 @@ class Clock(threading.Thread):
     def __init__(self, action, period = 1):
 
         # call super
-        super().__init__()
+        PY3 = sys.version_info[0] == 3
+        if (PY3):
+            super().__init__()
+        else:
+            super(Clock, self).__init__()
+
         self.condition = threading.Condition()
         self.period = period
 
@@ -70,7 +75,6 @@ class Clock(threading.Thread):
     def stop(self):
 
         self.run = False;
-        
         # Acquire lock
         self.condition.acquire()
 
