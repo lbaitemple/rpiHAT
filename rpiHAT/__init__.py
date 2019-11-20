@@ -1,6 +1,7 @@
 from rpiHAT.lsm6ds33  import LSM6DS33
 from rpiHAT.clock  import Clock
 from rpiHAT.servo     import *
+from rpiHAT.servont import *
 from rpiHAT.RotaryEncoder  import RotaryEncoder
 from rpiHAT.settings  import *
 # constants
